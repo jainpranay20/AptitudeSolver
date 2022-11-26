@@ -227,7 +227,7 @@ public class AptitudeFunction
             }
             else if(costPrice-sellingPrice<0) {
                 double gain=sellingPrice-costPrice;
-                double gain_percent=(-1 * gain/costPrice)*100;
+                double gain_percent=(gain/costPrice)*100;
                 res="profit: "+ gain +", profit percent: " +gain_percent+"%";
             }
             else {
@@ -235,10 +235,7 @@ public class AptitudeFunction
             }
             return res;
         }
-        catch (Exception e)
-        {
-            return "Either costPrice value or sellingPrice value is invalid";
-        }
+        catch (Exception e){return "Either costPrice value or sellingPrice value is invalid";}
     }
 
 

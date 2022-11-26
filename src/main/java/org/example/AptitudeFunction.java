@@ -154,7 +154,7 @@ public class AptitudeFunction
             return res;
         }catch(Exception e)
         {
-            return "Invalid count input";
+            return "Invalid value of n";
         }
     }
 
@@ -205,7 +205,7 @@ public class AptitudeFunction
             }
             double amount = principal * (Math.pow((1 + rate/100), (time)));
             double interest = amount - principal;
-            return result = "Amount is" + amount + "Interest is" + interest;
+            return result = "Amount is: " + amount + " Interest is: " + interest;
         }catch (Exception e)
         {
             return "Either principal value or rate value or time value is invalid";
@@ -226,8 +226,8 @@ public class AptitudeFunction
                 res="loss: " + loss + ", loss percent: " +loss_percent+"%";
             }
             else if(costPrice-sellingPrice<0) {
-                double gain=sellingPrice-costPrice;
-                double gain_percent=(-1 * gain/costPrice)*100;
+                double gain=costPrice-sellingPrice;
+                double gain_percent=(1 * gain/costPrice)*100;
                 res="profit: "+ gain +", profit percent: " +gain_percent+"%";
             }
             else {

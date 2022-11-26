@@ -154,7 +154,7 @@ public class AptitudeFunction
             return res;
         }catch(Exception e)
         {
-            return "Invalid count input";
+            return "Invalid value of n";
         }
     }
 
@@ -205,7 +205,7 @@ public class AptitudeFunction
             }
             double amount = principal * (Math.pow((1 + rate/100), (time)));
             double interest = amount - principal;
-            return result = "Amount is" + amount + "Interest is" + interest;
+            return result = "Amount is: " + amount + " Interest is: " + interest;
         }catch (Exception e)
         {
             return "Either principal value or rate value or time value is invalid";

@@ -67,7 +67,7 @@ public class AptitudeFunction
 
     }
 
-    public String getNthTerm(double startValue, double commonDifference, int n)
+    public String getNthTermAP(double startValue, double commonDifference, int n)
     {
         try {
             if (n <= 0) {
@@ -81,7 +81,7 @@ public class AptitudeFunction
         }
     }
 
-    public String findFirstNTerms(double startValue, double commonDifference, int n)
+    public String findFirstNTermsAP(double startValue, double commonDifference, int n)
     {
         String res = Double.toString(startValue);
         try
@@ -103,7 +103,7 @@ public class AptitudeFunction
         }
     }
 
-    public String findSumOfFirstNTerms(double startValue, double commonDifference, int n)
+    public String findSumOfFirstNTermsAP(double startValue, double commonDifference, int n)
     {
 
         try
@@ -120,5 +120,63 @@ public class AptitudeFunction
             return "Invalid count input";
         }
     }
+
+    public String getNthTermGP(double startValue, double commonDifference, int n)
+    {
+        try {
+            if (n <= 0) {
+                throw new Exception();
+            }
+            double res = startValue*Math.pow(commonDifference, n-1);
+            return Double.toString(res);
+        }catch (Exception e)
+        {
+            return "Invalid count";
+        }
+    }
+
+    public String findFirstNTermsGP(double startValue, double commonDifference, int n)
+    {
+        String res = Double.toString(startValue);
+        try
+        {
+            if(n<=0)
+            {
+                throw new Exception();
+            }
+            double current = startValue;
+            for(int i=0;i<n-1;i++)
+            {
+                current = current*commonDifference;
+                res = res + "," + Double.toString(current);
+            }
+            return res;
+        }catch(Exception e)
+        {
+            return "Invalid count input";
+        }
+    }
+
+    public String findSumOfFirstNTermsGP(double startValue, double commonDifference, int n)
+    {
+
+        try
+        {
+            if(n<=0)
+            {
+                throw new Exception();
+            }
+            double sum = startValue*(Math.pow(commonDifference, n)-1)/(commonDifference-1);
+            String res = Double.toString(sum);
+            return res;
+        }catch(Exception e)
+        {
+            return "Invalid count input";
+        }
+    }
+
+
+
+
 
 }

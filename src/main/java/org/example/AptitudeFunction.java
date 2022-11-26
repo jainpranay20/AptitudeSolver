@@ -8,7 +8,7 @@ public class AptitudeFunction
             if (original == 0) {
                 throw new Exception();
             }
-            double res = ((original - revised) / original) * 100;
+            double res = ((revised - original) / original) * 100;
             return Double.toString(res);
         }catch (Exception e)
         {
@@ -21,7 +21,7 @@ public class AptitudeFunction
         return (degree*100)/360;
     }
 
-    public String fractionToDoubleConverter(double a, double b)
+    public String fractionToPercentageConverter(double a, double b)
     {
         try
         {
@@ -36,7 +36,7 @@ public class AptitudeFunction
             }
         }catch(Exception e)
         {
-            return "Invalid operands";
+            return "Value of b cannot be zero";
         }
     }
 
@@ -62,7 +62,7 @@ public class AptitudeFunction
             return Double.toString(res);
         }catch (Exception e)
         {
-            return "Invalid Input;";
+            return "Invalid input";
         }
 
     }
@@ -77,7 +77,7 @@ public class AptitudeFunction
             return Double.toString(res);
         }catch (Exception e)
         {
-            return "Invalid count";
+            return "Invalid count input";
         }
     }
 
@@ -132,7 +132,7 @@ public class AptitudeFunction
             return Double.toString(res);
         }catch (Exception e)
         {
-            return "Invalid count";
+            return "Invalid count input";
         }
     }
 
@@ -185,14 +185,14 @@ public class AptitudeFunction
     public String simpleInterest(double principal, double rate, double time)
     {
         try {
-            if (principal == 0 || rate==0 || time==0) {
+            if (principal <= 0 || rate<=0 || time<=0) {
                 throw new Exception();
             }
             double si = (principal * rate * time)/ 100;
             return Double.toString(si);
         }catch (Exception e)
         {
-            return "Invalid original value";
+            return "Either principal value or rate value or time value is invalid";
         }
     }
 
@@ -208,7 +208,7 @@ public class AptitudeFunction
             return result = "Amount is" + amount + "Interest is" + interest;
         }catch (Exception e)
         {
-            return "Invalid original value";
+            return "Either principal value or rate value or time value is invalid";
 
         }
     }
@@ -217,27 +217,27 @@ public class AptitudeFunction
     {
         String res;
         try {
-            if (costPrice == 0) {
+            if (costPrice <= 0 || sellingPrice<=0) {
                 throw new Exception();
             }
             else if(costPrice-sellingPrice>0) {
-                double ans=costPrice-sellingPrice;
-                double res1=(ans/costPrice)*100;
-                res="loss" + ans + "loss percent" +res1;
+                double loss=costPrice-sellingPrice;
+                double loss_percent=(loss/costPrice)*100;
+                res="loss: " + loss + ", loss percent: " +loss_percent+"%";
             }
             else if(costPrice-sellingPrice<0) {
-                double ans=costPrice-sellingPrice;
-                double res1=(-1 * ans/costPrice)*100;
-                res="profit"+ ans +"profit percent" +res1;
+                double gain=sellingPrice-costPrice;
+                double gain_percent=(-1 * gain/costPrice)*100;
+                res="profit: "+ gain +", profit percent: " +gain_percent+"%";
             }
             else {
-                res="neutral";
+                res="No profit, No loss";
             }
             return res;
         }
         catch (Exception e)
         {
-            return "Invalid original value";
+            return "Either costPrice value or sellingPrice value is invalid";
         }
     }
 
@@ -255,7 +255,7 @@ public class AptitudeFunction
         }
         catch (Exception e)
         {
-            return "Invalid original Value";
+            return "Invalid input value";
         }
     }
 
